@@ -260,7 +260,6 @@ pub fn parse_san_game_termination_marker<'a, E: ParseError<&'a str>>(input: &'a 
 
 pub fn parse_san_movetext<'a, E: ParseError<&'a str>>(input: &'a str) -> IResult<&'a str, PGNmovetext, E> {
     map(many1(parse_san_move), | val | PGNmovetext {moves: val})(input)
-    
 }
 
 // Parse Tag Pair Date/Times
