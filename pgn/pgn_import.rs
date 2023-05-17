@@ -3,14 +3,14 @@ use crate::time_controls::*;
 use super::*;
 
 use nom::{
-    IResult,
-    error::ParseError,
-    combinator::{value, recognize, opt, map},
-    sequence::{pair, tuple, terminated, delimited, preceded, separated_pair},
-    bytes::complete::{tag, take_until, escaped, is_not},
-    character::complete::{char, one_of, multispace0, multispace1, line_ending, not_line_ending, none_of, u8, u16, u32}, 
-    multi::{many1, many0}, 
-    branch::alt,
+    *,
+    error::*,
+    combinator::*,
+    sequence::*,
+    bytes::complete::*,
+    character::complete::*, 
+    multi::*, 
+    branch::*,
   };
 
 // Parse Comments and unwanted data, functions throw away the PGN data
