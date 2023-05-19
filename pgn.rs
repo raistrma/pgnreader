@@ -47,6 +47,9 @@ pub enum SANply {
     Castle(Castle),
 }
 
+
+
+
 #[derive(Debug)]
 pub struct PGNmove {
     pub(crate) white_ply: SANply,
