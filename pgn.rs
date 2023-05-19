@@ -12,13 +12,13 @@ pub enum CheckType {
     StaleMate,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum Castle {
     KingSide,
     QueenSide,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 // SAN = Standard Algebraic Notation for a Move
 pub struct SANPlyCoordinates {
     from_file: Option<File>,
@@ -26,7 +26,7 @@ pub struct SANPlyCoordinates {
     to_square: Square,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum SANply {
     Basic {
         piece_moved: PieceType,
@@ -49,10 +49,10 @@ pub enum SANply {
 
 #[derive(Debug)]
 pub struct PGNmove {
-    white_ply: SANply,
-    white_ply_annotation: Option<String>,
-    black_ply: Option<SANply>,
-    black_ply_annotation: Option<String>,
+    pub(crate) white_ply: SANply,
+    pub(crate) white_ply_annotation: Option<String>,
+    pub(crate) black_ply: Option<SANply>,
+    pub(crate) black_ply_annotation: Option<String>,
 }
 
 // Contains a ordered vector of moves

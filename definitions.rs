@@ -1,6 +1,6 @@
 use std::fmt;
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq)]
 #[repr(usize)]
 pub enum File {
     A,
@@ -21,7 +21,7 @@ impl fmt::Display for File {
     }
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq)]
 #[repr(usize)]
 pub enum Rank {
     R1,
@@ -44,7 +44,7 @@ impl fmt::Display for Rank {
 
 pub const BOARD_SIZE: usize = 64;
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq)]
 pub struct Square {
     pub reference: usize,
 }
@@ -85,6 +85,7 @@ pub enum PieceType {
 
 pub const COUNT_PIECETYPES: usize = 12;
 pub const PIECE_NAMES_SHORT: [&str; COUNT_PIECETYPES] = ["K", "Q", "R", "B", "N", "P", "P", "R", "R", "K", "K", "K"];
+pub const MAJOR_PIECETYPES: [&str; 5] = ["K", "Q", "R", "B", "N"];
 
 impl fmt::Display for PieceType {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
